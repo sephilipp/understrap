@@ -12,8 +12,18 @@ var autoprefixer = require( 'autoprefixer' ),
     sass = require( 'gulp-sass' ),
     sourcemaps = require( 'gulp-sourcemaps' ),
     uglify = require( 'gulp-uglify' ),
-    rev = require('gulp-rev');
+    rev = require('gulp-rev'),
+    //revDel = require('gulp-rev-delete-original');
+    revDel = require('rev-del');
 
+revDel({
+    oldManifest: 'rev-manifest.json',
+    newManifest: { /* a manifest */ },
+    suppress: true,
+    deleteMapExtensions: true
+}, function (err, filesDeleted) {
+
+});
 
 // Configuration file to keep your code DRY
 const cfg = require( './gulpconfig.json' );
@@ -189,11 +199,12 @@ gulp.task( 'watch-bs', function( done ) {
 gulp.task( 'revision', function(done) {
   // by default, gulp would pick `assets/css` as the base,
   // so we need to set it explicitly:
-  gulp.src([paths.css + '/theme.min.css', paths.js + '/theme.min.js'], {base: './'})
-    .pipe(rev())
-    .pipe(gulp.dest('./'))  // write rev'd assets to build dir
-    .pipe(rev.manifest())
-    .pipe(gulp.dest('./'));  // write manifest to build dir
+  gulp.src( [paths.css + '/theme.min.css', paths.js + '/theme.min.js'], {base: './'} )
+    .pipe( rev() )
+    .pipe( gulp.dest('./') )  // write rev'd assets to build dir
+    .pipe( rev.manifest() )
+    .pipe( revDel() )
+    .pipe( gulp.dest('./') );  // write manifest to build dir
     done();
 
 });
