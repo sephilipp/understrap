@@ -11,14 +11,13 @@
   "paths" : {
     "js": "./js",
     "css": "./css",
-    "img": "./img",
-    "imgsrc": "./src/img",
-    "sass": "./sass",
+    "img": "./images",
+    "imgsrc": "./src/images/",
     "node": "./node_modules/",
     "bower": "./bower_components/",
-    "dev": "./src",
-    "dist": "./dist",
-    "distprod": "./dist-product",
-    "vendor": ""
+    "dev": "./src/",
+    "devscss": "./src/scss/",
+    "devjs": "./src/js/",
+    "dist": "./dist"
   }
 }
