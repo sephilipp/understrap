@@ -4,7 +4,7 @@
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp copAssets",
+    "postinstall": "gulp copyAssets",
     "start": "gulp",
     "build": "gulp build --prod"
   },
@@ -26,7 +26,7 @@
   },
   "homepage": "https://understrap.com",
   "dependencies": {
-    "bootstrap": "4.2.1",
+    "bootstrap": "4.3.1",
     "popper.js": "^1.14.6",
     "undescores-for-npm": "^1.0.0"
   },

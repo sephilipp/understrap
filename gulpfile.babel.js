@@ -107,7 +107,7 @@ export const dist = (done) => {
 }
 
 export const scripts = () => {
-  return src(paths.devjs + 'theme.js')
+  return src([paths.devjs + 'include/*.js', paths.devjs + 'theme.js'])
   .pipe(webpack({
     module: {
       rules: [
